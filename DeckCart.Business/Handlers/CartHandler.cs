@@ -26,8 +26,9 @@ namespace DeckCart.Business.Handlers
 
                 if (user == null)
                 {
-                    Log.Error($"User with ID '{userId}' was not found");
-                    throw new InvalidOperationException();
+                    var errorMessage = $"User with ID '{userId}' was not found";
+                    Log.Error(errorMessage);
+                    throw new InvalidOperationException(errorMessage);
                 }
 
                 var cart = new UserCart
